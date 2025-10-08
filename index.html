@@ -202,54 +202,6 @@
       box-shadow: 0 16px 30px rgba(222, 152, 81, 0.35);
     }
 
-    .timeline {
-      display: grid;
-      gap: 1.4rem;
-      margin-top: 2rem;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 1rem;
-      align-items: center;
-      background: var(--cloud);
-      padding: 1.2rem 1.4rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 22px rgba(36, 66, 53, 0.08);
-    }
-
-    .timeline-item time {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #1d3229;
-    }
-
-    .timeline-item p {
-      margin: 0;
-      text-align: left;
-    }
-
-    .steps {
-      list-style: none;
-      padding: 0;
-      display: grid;
-      gap: 1rem;
-      margin: 1.5rem 0;
-    }
-
-    .steps li {
-      background: var(--cloud);
-      padding: 1rem 1.2rem;
-      border-radius: 16px;
-      box-shadow: 0 12px 22px rgba(36, 66, 53, 0.08);
-    }
-
-    .steps li strong {
-      display: block;
-      margin-bottom: 0.3rem;
-    }
-
     .qr {
       display: flex;
       justify-content: center;
@@ -266,27 +218,73 @@
       box-shadow: 0 18px 35px rgba(36, 66, 53, 0.15);
     }
 
-    .card-list {
-      display: grid;
-      gap: 1.2rem;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      margin-top: 1.5rem;
-    }
-
-    .card {
+    .upload-box {
       background: var(--cloud);
       border-radius: 18px;
-      padding: 1.4rem;
+      padding: 1.6rem;
       box-shadow: 0 12px 24px rgba(36, 66, 53, 0.08);
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .upload-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      justify-content: center;
+    }
+
+    .upload-actions .button.secondary {
+      background: var(--cloud);
+      border: 2px dashed var(--accent);
+      box-shadow: none;
+      color: var(--accent-dark);
+      padding: 0.85rem 1.5rem;
+    }
+
+    .upload-actions .button.secondary:hover,
+    .upload-actions .button.secondary:focus {
+      background: rgba(244, 181, 109, 0.15);
+      transform: none;
+      box-shadow: none;
+    }
+
+    .file-list,
+    .status-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
       display: grid;
       gap: 0.6rem;
     }
 
-    .card h3 {
-      margin: 0;
-      font-family: 'Cabin', sans-serif;
-      font-size: 1.25rem;
+    .file-list li {
+      background: rgba(36, 66, 53, 0.05);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .status-list li {
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .status-success {
+      background: rgba(63, 176, 135, 0.18);
       color: #1d3229;
+    }
+
+    .status-error {
+      background: rgba(255, 99, 71, 0.18);
+      color: #8a1d1d;
     }
 
     footer {
@@ -318,9 +316,6 @@
         padding: 2rem 1.4rem;
       }
 
-      .timeline-item {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -330,9 +325,7 @@
       <span class="badge">🎂 1er Anniversaire Safari d’Ikyane</span>
       <nav aria-label="Navigation principale">
         <a href="#infos">Infos</a>
-        <a href="#programme">Programme</a>
         <a href="#souvenirs">Souvenirs</a>
-        <a href="#checklist">Checklist</a>
       </nav>
     </div>
   </header>
@@ -386,98 +379,134 @@
       </div>
     </section>
 
-    <section class="section" id="programme">
-      <h2>Déroulé du safari festif</h2>
-      <p>
-        Pour que la journée soit fluide pour petits et grands, voici notre boussole du bonheur.
-        Tu peux la consulter rapidement grâce à la navigation en haut de page.&nbsp;🐾
-      </p>
-
-      <div class="timeline" role="list">
-        <article class="timeline-item" role="listitem">
-          <time datetime="2025-10-12T11:00">11h00</time>
-          <p>Accueil des explorateurs, distribution des badges «&nbsp;Super Ranger&nbsp;» et câlins avec Ikyane.</p>
-        </article>
-        <article class="timeline-item" role="listitem">
-          <time datetime="2025-10-12T12:00">12h00</time>
-          <p>Grand banquet dans la clairière avec buffet coloré, coin purées pour bébés et boissons fruitées.</p>
-        </article>
-        <article class="timeline-item" role="listitem">
-          <time datetime="2025-10-12T13:30">13h30</time>
-          <p>Jeux sensoriels, chasse aux peluches sauvages et atelier bulles géantes pour émerveiller les petits.</p>
-        </article>
-        <article class="timeline-item" role="listitem">
-          <time datetime="2025-10-12T15:00">15h00</time>
-          <p>Gâteau 1er anniversaire, séance photos souvenirs et ouverture du coin câlin pour sieste douce.</p>
-        </article>
-      </div>
-    </section>
-
     <section class="section" id="souvenirs">
       <h2>Capture et partage tes souvenirs</h2>
       <p>
-        Ta mission (si tu l’acceptes&nbsp;😉)&nbsp;: déposer tes plus jolis clichés dans notre coffre aux trésors.
-        Grâce au lien ci-dessous, tout le monde pourra revivre la magie du safari quand il le souhaite.
+        Ta mission (si tu l’acceptes&nbsp;😉)&nbsp;: déposer tes plus jolis clichés directement ici. Sélectionne tes
+        photos, nous les envoyons ensuite vers l’album partagé pour que tout le monde puisse revivre la magie du
+        safari quand il le souhaite.
       </p>
 
-      <div class="cta">
-        <a
-          class="button"
-          href="https://drive.google.com/drive/folders/1aExkJ6IOitB8knqZVUqSnCWrPMDywOUn?usp=sharing"
-          target="_blank"
-          rel="noreferrer"
-        >
-          📤 Déposer mes photos
-        </a>
+      <div class="upload-box" role="region" aria-labelledby="souvenirs-upload">
+        <h3 id="souvenirs-upload" style="margin: 0; font-size: 1.3rem;">Dépose tes photos en quelques clics</h3>
+        <p style="margin: 0;">
+          Choisis plusieurs fichiers à la fois (format JPG ou PNG recommandé). Une fois l’envoi terminé, tu recevras
+          une confirmation juste ici.&nbsp;📸
+        </p>
+
+        <input id="photos" type="file" accept="image/*" multiple hidden />
+
+        <div class="upload-actions">
+          <button type="button" class="button secondary" id="select-photos">📁 Sélectionner mes fichiers</button>
+          <button type="button" class="button" id="upload-photos">📤 Envoyer vers l’album</button>
+        </div>
+
+        <ul class="file-list" id="file-list" aria-live="polite"></ul>
+        <ul class="status-list" id="status-list" aria-live="assertive"></ul>
+        <p style="font-size: 0.9rem; margin: 0; color: rgba(29, 50, 41, 0.75);">
+          ℹ️ Configure l’adresse d’envoi dans le script si besoin (voir le commentaire dans le code).
+        </p>
       </div>
 
       <div class="qr">
-        <img src="qr-ikyane.png" alt="QR code vers le dossier Google Drive pour les photos" class="qrcode" />
-      </div>
-
-      <ol class="steps">
-        <li>
-          <strong>1. Ouvre le lien</strong>
-          Depuis ton téléphone ou ton ordinateur, accède au dossier partagé Google Drive.
-        </li>
-        <li>
-          <strong>2. Ajoute tes images</strong>
-          Clique sur «&nbsp;+&nbsp;Nouveau&nbsp;» puis «&nbsp;Importer des photos&nbsp;» pour charger tes souvenirs.
-        </li>
-        <li>
-          <strong>3. Souris&nbsp;!</strong>
-          Profite d’une sélection automatique des meilleurs clichés pour l’album souvenir d’Ikyane.
-        </li>
-      </ol>
-    </section>
-
-    <section class="section" id="checklist">
-      <h2>Checklist des super aventuriers</h2>
-      <p>
-        Avec ces petits rappels, la journée se déroulera en toute douceur. Tu peux cocher mentalement chaque carte
-        avant de partir, et tout sera prêt pour célébrer le 1er anniversaire comme il se doit&nbsp;! 🎈
-      </p>
-
-      <div class="card-list">
-        <article class="card">
-          <h3>🎒 Sac léger</h3>
-          <p>Prévois un change confortable, une petite veste et la doudou préférée pour les temps calmes.</p>
-        </article>
-        <article class="card">
-          <h3>🧴 Coin confort</h3>
-          <p>Nous avons tapis d’éveil, chaise haute et chauffe-biberon. Apporte seulement le nécessaire de bébé.</p>
-        </article>
-        <article class="card">
-          <h3>🎁 Idée cadeau</h3>
-          <p>Un livre cartonné sur les animaux ou une peluche douce fera rugir de bonheur le petit explorateur.</p>
-        </article>
-        <article class="card">
-          <h3>📞 Besoin d’aide ?</h3>
-          <p>Contacte les gardiens de la savane au <a href="tel:+33600000000">06 00 00 00 00</a> pour toute question.</p>
-        </article>
+        <img src="qr-ikyane.png" alt="QR code d’accès rapide à la page de partage des photos" class="qrcode" />
       </div>
     </section>
-  </main>
+
+</main>
+
+  <script>
+    const fileInput = document.getElementById('photos');
+    const selectButton = document.getElementById('select-photos');
+    const uploadButton = document.getElementById('upload-photos');
+    const fileList = document.getElementById('file-list');
+    const statusList = document.getElementById('status-list');
+
+    // Renseigne ici l’URL du script Google Apps Script qui s’occupe de l’envoi sur Drive.
+    // Exemple : const UPLOAD_ENDPOINT = 'https://script.google.com/macros/s/XXXXX/exec';
+    const UPLOAD_ENDPOINT = '';
+
+    if (selectButton && fileInput) {
+      selectButton.addEventListener('click', () => fileInput.click());
+    }
+
+    if (fileInput) {
+      fileInput.addEventListener('change', () => {
+        if (!fileList || !statusList) return;
+
+        fileList.innerHTML = '';
+        statusList.innerHTML = '';
+
+        if (!fileInput.files.length) {
+          return;
+        }
+
+        Array.from(fileInput.files).forEach((file) => {
+          const item = document.createElement('li');
+          const name = document.createElement('span');
+          name.textContent = file.name;
+          const size = document.createElement('span');
+          size.textContent = `${(file.size / 1024).toFixed(1)} ko`;
+          item.append(name, size);
+          fileList.appendChild(item);
+        });
+      });
+    }
+
+    if (uploadButton && fileInput) {
+      uploadButton.addEventListener('click', async () => {
+        if (!fileList || !statusList) return;
+
+        statusList.innerHTML = '';
+
+        if (!fileInput.files.length) {
+          const warning = document.createElement('li');
+          warning.className = 'status-error';
+          warning.textContent = 'Sélectionne d’abord au moins un fichier avant de lancer l’envoi.';
+          statusList.appendChild(warning);
+          return;
+        }
+
+        if (!UPLOAD_ENDPOINT) {
+          const info = document.createElement('li');
+          info.className = 'status-error';
+          info.textContent =
+            'Renseigne l’URL du script de réception dans le code pour activer l’envoi automatique vers Google Drive.';
+          statusList.appendChild(info);
+          return;
+        }
+
+        for (const file of fileInput.files) {
+          const statusItem = document.createElement('li');
+          statusItem.textContent = `Envoi de ${file.name}…`;
+          statusList.appendChild(statusItem);
+
+          try {
+            const formData = new FormData();
+            formData.append('file', file);
+
+            const response = await fetch(UPLOAD_ENDPOINT, {
+              method: 'POST',
+              body: formData,
+            });
+
+            if (!response.ok) {
+              throw new Error(`Erreur ${response.status}`);
+            }
+
+            statusItem.textContent = `✅ ${file.name} envoyé avec succès !`;
+            statusItem.className = 'status-success';
+          } catch (error) {
+            statusItem.textContent = `❌ ${file.name} – envoi impossible (${error.message}).`;
+            statusItem.className = 'status-error';
+          }
+        }
+
+        fileInput.value = '';
+        fileList.innerHTML = '';
+      });
+    }
+  </script>
 
   <footer>
     💌 Merci d’être présents pour souffler cette toute première bougie&nbsp;!<br />
