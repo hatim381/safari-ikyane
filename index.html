@@ -4,13 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Safari du 1er anniversaire d’Ikyane 🦁</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Pacifico&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@400;600;700&family=Pacifico&display=swap" rel="stylesheet" />
   <style>
     :root {
-      color-scheme: light;
       --bg: #fff8f1;
       --overlay: rgba(255, 248, 241, 0.88);
       --accent: #f4b56d;
@@ -20,15 +16,7 @@
       --sky: #9dd7ff;
       --cloud: #ffffff;
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: 'Cabin', sans-serif;
@@ -37,383 +25,60 @@
       background-image: radial-gradient(circle at top left, rgba(157, 215, 255, 0.35) 0, transparent 50%),
         radial-gradient(circle at bottom right, rgba(244, 181, 109, 0.25) 0, transparent 55%);
     }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(8px);
-      background: rgba(255, 248, 241, 0.85);
-      border-bottom: 1px solid rgba(47, 75, 64, 0.08);
-    }
-
-    .nav {
-      max-width: 960px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 1.5rem;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 600;
-      background: linear-gradient(120deg, var(--sky), #ffe5a3);
-      color: #244235;
-      padding: 0.4rem 0.9rem;
-      border-radius: 999px;
-      box-shadow: 0 8px 18px rgba(36, 66, 53, 0.12);
-      font-size: 0.95rem;
-    }
-
-    nav a {
-      color: var(--jungle);
-      text-decoration: none;
-      font-weight: 600;
-      padding: 0.4rem 0.8rem;
-      border-radius: 999px;
-      transition: all 0.2s ease;
-    }
-
-    nav a:hover,
-    nav a:focus {
-      background: var(--jungle-soft);
-      color: #1d3229;
-    }
-
-    main {
-      padding: 2rem 1.2rem 4rem;
-    }
-
-    .section {
-      max-width: 960px;
-      margin: 0 auto 3rem;
-      background: var(--overlay);
-      border-radius: 24px;
-      box-shadow: 0 12px 30px rgba(36, 66, 53, 0.08);
-      padding: 2.4rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .section::after {
-      content: '';
-      position: absolute;
-      inset: auto -40px -40px auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle, rgba(244, 181, 109, 0.45), transparent 60%);
-      filter: blur(0.5px);
-      z-index: -1;
-    }
-
-    .section h1,
-    .section h2 {
-      font-family: 'Pacifico', cursive;
-      letter-spacing: 0.5px;
-      text-align: center;
-      margin-top: 0;
-      color: #244235;
-    }
-
-    .section h1 {
-      font-size: clamp(2.3rem, 6vw, 3.2rem);
-    }
-
-    .section h2 {
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      margin-bottom: 1.5rem;
-    }
-
-    .section p,
-    .section li {
-      font-size: 1.05rem;
-      line-height: 1.7;
-      color: rgba(29, 50, 41, 0.92);
-    }
-
-    .highlight-card {
-      display: grid;
-      gap: 1.4rem;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(157, 215, 255, 0.35), rgba(255, 229, 163, 0.5));
-      border-radius: 20px;
-      padding: 1.6rem;
-      margin-bottom: 2rem;
-    }
-
-    .highlight-card strong {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.6rem;
-      font-size: 1.1rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .details-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
-      margin-top: 1.4rem;
-    }
-
-    .details-card {
-      background: var(--cloud);
-      border-radius: 18px;
-      padding: 1.4rem;
-      box-shadow: 0 10px 25px rgba(36, 66, 53, 0.1);
-      text-align: center;
-      display: grid;
-      gap: 0.4rem;
-    }
-
-    .details-card span {
-      font-size: 2rem;
-    }
-
-    .cta {
-      text-align: center;
-      margin: 2rem 0 0;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background-color: var(--accent);
-      color: #1d3229;
-      padding: 0.9rem 1.6rem;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 12px 20px rgba(222, 152, 81, 0.25);
-    }
-
-    .button:hover,
-    .button:focus {
-      background-color: var(--accent-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 16px 30px rgba(222, 152, 81, 0.35);
-    }
-
-    .qr {
-      display: flex;
-      justify-content: center;
-      margin: 2rem 0;
-    }
-
-    img.qrcode {
-      width: 180px;
-      height: 180px;
-      border: 5px solid var(--cloud);
-      border-radius: 24px;
-      background-color: #fff;
-      padding: 0.7rem;
-      box-shadow: 0 18px 35px rgba(36, 66, 53, 0.15);
-    }
-
-    .upload-box {
-      background: var(--cloud);
-      border-radius: 18px;
-      padding: 1.6rem;
-      box-shadow: 0 12px 24px rgba(36, 66, 53, 0.08);
-      display: grid;
-      gap: 1.2rem;
-    }
-
-    .upload-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      justify-content: center;
-    }
-
-    .upload-actions .button.secondary {
-      background: var(--cloud);
-      border: 2px dashed var(--accent);
-      box-shadow: none;
-      color: var(--accent-dark);
-      padding: 0.85rem 1.5rem;
-    }
-
-    .upload-actions .button.secondary:hover,
-    .upload-actions .button.secondary:focus {
-      background: rgba(244, 181, 109, 0.15);
-      transform: none;
-      box-shadow: none;
-    }
-
-    .file-list,
-    .status-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 0.6rem;
-    }
-
-    .file-list li {
-      background: rgba(36, 66, 53, 0.05);
-      border-radius: 12px;
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .status-list li {
-      border-radius: 12px;
-      padding: 0.75rem 1rem;
-      font-size: 0.95rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .status-success {
-      background: rgba(63, 176, 135, 0.18);
-      color: #1d3229;
-    }
-
-    .status-error {
-      background: rgba(255, 99, 71, 0.18);
-      color: #8a1d1d;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.95rem;
-      color: rgba(29, 50, 41, 0.75);
-      padding: 2rem 1rem 3rem;
-    }
-
-    footer a {
-      color: inherit;
-      font-weight: 600;
-    }
-
-    @media (max-width: 720px) {
-      .nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      nav {
-        display: flex;
-        gap: 0.6rem;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .section {
-        padding: 2rem 1.4rem;
-      }
-
-    }
+    header { position: sticky; top: 0; background: rgba(255, 248, 241, 0.85); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(47, 75, 64, 0.08); z-index: 50; }
+    .nav { max-width: 960px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.5rem; }
+    .badge { display: inline-flex; align-items: center; gap: 0.5rem; font-weight: 600; background: linear-gradient(120deg, var(--sky), #ffe5a3); color: #244235; padding: 0.4rem 0.9rem; border-radius: 999px; box-shadow: 0 8px 18px rgba(36, 66, 53, 0.12); }
+    nav a { color: var(--jungle); text-decoration: none; font-weight: 600; padding: 0.4rem 0.8rem; border-radius: 999px; transition: all 0.2s ease; }
+    nav a:hover { background: var(--jungle-soft); color: #1d3229; }
+    main { padding: 2rem 1.2rem 4rem; }
+    .section { max-width: 960px; margin: 0 auto 3rem; background: var(--overlay); border-radius: 24px; box-shadow: 0 12px 30px rgba(36, 66, 53, 0.08); padding: 2.4rem 2rem; position: relative; overflow: hidden; }
+    .section h2 { font-family: 'Pacifico', cursive; text-align: center; margin-bottom: 1.5rem; color: #244235; }
+    .upload-box { background: var(--cloud); border-radius: 18px; padding: 1.6rem; box-shadow: 0 12px 24px rgba(36, 66, 53, 0.08); display: grid; gap: 1.2rem; }
+    .upload-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; justify-content: center; }
+    .button { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; background-color: var(--accent); color: #1d3229; padding: 0.9rem 1.6rem; border-radius: 999px; font-weight: 700; cursor: pointer; transition: transform 0.2s, background 0.2s; border: none; }
+    .button:hover { background-color: var(--accent-dark); transform: translateY(-2px); }
+    .file-list, .status-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+    .file-list li, .status-list li { background: rgba(36, 66, 53, 0.05); border-radius: 12px; padding: 0.75rem 1rem; font-size: 0.95rem; display: flex; justify-content: space-between; gap: 1rem; }
+    .status-success { background: rgba(63, 176, 135, 0.18); color: #1d3229; }
+    .status-error { background: rgba(255, 99, 71, 0.18); color: #8a1d1d; }
+    footer { text-align: center; font-size: 0.95rem; color: rgba(29, 50, 41, 0.75); padding: 2rem 1rem 3rem; }
   </style>
 </head>
+
 <body>
   <header>
     <div class="nav">
       <span class="badge">🎂 1er Anniversaire Safari d’Ikyane</span>
-      <nav aria-label="Navigation principale">
-        <a href="#infos">Infos</a>
-        <a href="#souvenirs">Souvenirs</a>
-      </nav>
+      <nav><a href="#infos">Infos</a><a href="#souvenirs">Souvenirs</a></nav>
     </div>
   </header>
 
   <main>
-    <section class="section" id="infos">
-      <div class="highlight-card">
-        <div>
-          <strong>🌍 Grand Safari du 1er anniversaire</strong>
-          <p>
-            Les tam-tams résonnent déjà&nbsp;! Prépare ton chapeau d’aventurier pour célébrer
-            la toute première bougie d’Ikyane. Entre animaux rigolos, câlins et
-            éclats de rire, la savane n’attend plus que ta bonne humeur.
-          </p>
-        </div>
-      </div>
-
-      <h1>Bienvenue au camp des explorateurs</h1>
-      <p>
-        Chaque invité recevra une médaille «&nbsp;Super Ranger&nbsp;», un coin câlin pour les tout-petits et des
-        souvenirs photos instantanés pour immortaliser cette journée.&nbsp;🌟
-      </p>
-
-      <div class="details-grid" role="list">
-        <article class="details-card" role="listitem">
-          <span>📍</span>
-          <strong>Campement</strong>
-          <p>4 rue de l’Église<br />02210 La Croix-sur-Ourcq</p>
-        </article>
-        <article class="details-card" role="listitem">
-          <span>📅</span>
-          <strong>Jour J</strong>
-          <p>Dimanche 12 octobre 2025</p>
-        </article>
-        <article class="details-card" role="listitem">
-          <span>⏰</span>
-          <strong>Heure de départ</strong>
-          <p>11h00 précises</p>
-        </article>
-      </div>
-
-      <div class="cta">
-        <a
-          class="button"
-          href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Safari%20d%27anniversaire%20d%27Ikyane&details=Un%20safari%20d%27anniversaire%20rempli%20de%20jeux%20et%20de%20sourires&dates=20251012T090000Z/20251012T130000Z&location=4%20rue%20de%20l%E2%80%99%C3%89glise%2C%2002210%20La%20Croix-sur-Ourcq"
-          target="_blank"
-          rel="noreferrer"
-        >
-          📅 Ajouter à mon agenda
-        </a>
-      </div>
-    </section>
-
     <section class="section" id="souvenirs">
-      <h2>Capture et partage tes souvenirs</h2>
-      <p>
-        Ta mission (si tu l’acceptes&nbsp;😉)&nbsp;: déposer tes plus jolis clichés directement ici. Sélectionne tes
-        photos, nous les envoyons ensuite vers l’album partagé pour que tout le monde puisse revivre la magie du
-        safari quand il le souhaite.
-      </p>
+      <h2>📸 Capture et partage tes souvenirs</h2>
+      <p>Dépose tes plus jolies photos ici, elles seront ajoutées à l’album partagé pour revivre le Safari d’Ikyane !</p>
 
-      <div class="upload-box" role="region" aria-labelledby="souvenirs-upload">
-        <h3 id="souvenirs-upload" style="margin: 0; font-size: 1.3rem;">Dépose tes photos en quelques clics</h3>
-        <p style="margin: 0;">
-          Choisis plusieurs fichiers à la fois (format JPG ou PNG recommandé). Une fois l’envoi terminé, tu recevras
-          une confirmation juste ici.&nbsp;📸
-        </p>
+      <div class="upload-box">
+        <label for="guestName" style="font-weight:600;">🪶 Ton prénom :</label>
+        <input id="guestName" type="text" placeholder="Ex. Hatim" style="padding:0.6rem;border-radius:8px;border:1px solid rgba(47,75,64,0.2);font-size:1rem;width:100%;max-width:280px;margin:0 auto;display:block;" required />
 
         <input id="photos" type="file" accept="image/*" multiple hidden />
 
         <div class="upload-actions">
-          <button type="button" class="button secondary" id="select-photos">📁 Sélectionner mes fichiers</button>
+          <button type="button" class="button" id="select-photos">📁 Sélectionner mes fichiers</button>
           <button type="button" class="button" id="upload-photos">📤 Envoyer vers l’album</button>
         </div>
 
-        <ul class="file-list" id="file-list" aria-live="polite"></ul>
-        <ul class="status-list" id="status-list" aria-live="assertive"></ul>
-        <p style="font-size: 0.9rem; margin: 0; color: rgba(29, 50, 41, 0.75);">
-          ℹ️ Configure l’adresse d’envoi dans le script si besoin (voir le commentaire dans le code).
-        </p>
-      </div>
-
-      <div class="qr">
-        <img src="qr-ikyane.png" alt="QR code d’accès rapide à la page de partage des photos" class="qrcode" />
+        <ul class="file-list" id="file-list"></ul>
+        <ul class="status-list" id="status-list"></ul>
       </div>
     </section>
+  </main>
 
-</main>
+  <footer>
+    💌 Merci d’être présents pour souffler cette première bougie ! <br />
+    Suis les panneaux pour rejoindre la savane 🦒
+  </footer>
 
   <script>
     const fileInput = document.getElementById('photos');
@@ -421,96 +86,69 @@
     const uploadButton = document.getElementById('upload-photos');
     const fileList = document.getElementById('file-list');
     const statusList = document.getElementById('status-list');
+    const guestName = document.getElementById('guestName');
 
-    // Renseigne ici l’URL du script Google Apps Script qui s’occupe de l’envoi sur Drive.
-    // Exemple : const UPLOAD_ENDPOINT = 'https://script.google.com/macros/s/XXXXX/exec';
-    const UPLOAD_ENDPOINT = '';
+    // ✅ Ton script Google Apps Script (Drive)
+    const UPLOAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbzmRX5V_VO7a2YZFtMeOlrvlHpydL8fjQMVncQDGQfXkiDFqEbTICDA0NMI2F2m4Jcl/exec';
 
-    if (selectButton && fileInput) {
-      selectButton.addEventListener('click', () => fileInput.click());
-    }
+    selectButton.addEventListener('click', () => fileInput.click());
 
-    if (fileInput) {
-      fileInput.addEventListener('change', () => {
-        if (!fileList || !statusList) return;
-
-        fileList.innerHTML = '';
-        statusList.innerHTML = '';
-
-        if (!fileInput.files.length) {
-          return;
-        }
-
-        Array.from(fileInput.files).forEach((file) => {
-          const item = document.createElement('li');
-          const name = document.createElement('span');
-          name.textContent = file.name;
-          const size = document.createElement('span');
-          size.textContent = `${(file.size / 1024).toFixed(1)} ko`;
-          item.append(name, size);
-          fileList.appendChild(item);
-        });
+    fileInput.addEventListener('change', () => {
+      fileList.innerHTML = '';
+      statusList.innerHTML = '';
+      Array.from(fileInput.files).forEach((file) => {
+        const item = document.createElement('li');
+        item.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} ko)`;
+        fileList.appendChild(item);
       });
-    }
+    });
 
-    if (uploadButton && fileInput) {
-      uploadButton.addEventListener('click', async () => {
-        if (!fileList || !statusList) return;
+    uploadButton.addEventListener('click', async () => {
+      statusList.innerHTML = '';
 
-        statusList.innerHTML = '';
+      if (!guestName.value.trim()) {
+        const error = document.createElement('li');
+        error.textContent = '❌ Merci d’indiquer ton prénom avant l’envoi.';
+        error.className = 'status-error';
+        statusList.appendChild(error);
+        return;
+      }
 
-        if (!fileInput.files.length) {
-          const warning = document.createElement('li');
-          warning.className = 'status-error';
-          warning.textContent = 'Sélectionne d’abord au moins un fichier avant de lancer l’envoi.';
-          statusList.appendChild(warning);
-          return;
+      if (!fileInput.files.length) {
+        const error = document.createElement('li');
+        error.textContent = '❌ Sélectionne au moins une photo avant d’envoyer.';
+        error.className = 'status-error';
+        statusList.appendChild(error);
+        return;
+      }
+
+      for (const file of fileInput.files) {
+        const item = document.createElement('li');
+        item.textContent = `Envoi de ${file.name}…`;
+        statusList.appendChild(item);
+
+        try {
+          const formData = new FormData();
+          formData.append('name', guestName.value.trim());
+          formData.append(file.name, file);
+
+          const response = await fetch(UPLOAD_ENDPOINT, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (!response.ok) throw new Error(`Erreur ${response.status}`);
+          item.textContent = `✅ ${file.name} envoyé avec succès !`;
+          item.className = 'status-success';
+        } catch (err) {
+          item.textContent = `❌ ${file.name} – ${err.message}`;
+          item.className = 'status-error';
         }
+      }
 
-        if (!UPLOAD_ENDPOINT) {
-          const info = document.createElement('li');
-          info.className = 'status-error';
-          info.textContent =
-            'Renseigne l’URL du script de réception dans le code pour activer l’envoi automatique vers Google Drive.';
-          statusList.appendChild(info);
-          return;
-        }
-
-        for (const file of fileInput.files) {
-          const statusItem = document.createElement('li');
-          statusItem.textContent = `Envoi de ${file.name}…`;
-          statusList.appendChild(statusItem);
-
-          try {
-            const formData = new FormData();
-            formData.append('file', file);
-
-            const response = await fetch(UPLOAD_ENDPOINT, {
-              method: 'POST',
-              body: formData,
-            });
-
-            if (!response.ok) {
-              throw new Error(`Erreur ${response.status}`);
-            }
-
-            statusItem.textContent = `✅ ${file.name} envoyé avec succès !`;
-            statusItem.className = 'status-success';
-          } catch (error) {
-            statusItem.textContent = `❌ ${file.name} – envoi impossible (${error.message}).`;
-            statusItem.className = 'status-error';
-          }
-        }
-
-        fileInput.value = '';
-        fileList.innerHTML = '';
-      });
-    }
+      fileInput.value = '';
+      fileList.innerHTML = '';
+    });
   </script>
-
-  <footer>
-    💌 Merci d’être présents pour souffler cette toute première bougie&nbsp;!<br />
-    Suis les panneaux dans la rue, et au besoin appelle-nous pour guider ton troupeau.
-  </footer>
 </body>
 </html>
